@@ -1,27 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-/*
-class Square extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: null,
-    };
 
-  }
-
-    render() {
-      return (
-        <button 
-        className="square" 
-        onClick={ ()=> this.props.onClick()}
-        >
-          {this.props.value}
-        </button>
-      );
-    }
-  }*/
   function Square(props) {
     return (
       <button className= "square" onClick = {props.onClick}>
@@ -31,22 +11,11 @@ class Square extends React.Component {
   }
   
   class Board extends React.Component {
-/*
-    constructor(props){
-      super(props);
-      this.state = {
-        squares: Array(9).fill(null),
-        xIsNext: true,
-      };
-    }
-*/
-   
+ 
 
     renderSquare(i) {
       return (
       <Square 
-     /* value={this.state.squares[i]} 
-      onClick={()=> this.handleClick(i)}*/
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
       />
@@ -54,19 +23,7 @@ class Square extends React.Component {
     }
   
     render() {
-     /* 
-      const winner = calculateWinner(this.state.squares);
-
-      let status;
-      if (winner) {
-        status = 'Winner: ' + winner;
-      } else {
-        status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-      }
-       return (
-        <div>
-          <div className="status">{status}</div>
-    */
+ 
       return (
         <div>
           <div className="board-row">
@@ -127,7 +84,6 @@ class Square extends React.Component {
     }
     render() {
       const history = this.state.history;
-      /*const current = history[history.length - 1];*/
       const current = history[this.state.stepNumber];
       const winner = calculateWinner(current.squares);
   
